@@ -3,6 +3,7 @@ from .models import Properties, PropertType, PropertyAmenities, PropertyUnits, I
 
 def get_unit_photos(self, obj):
     return "\n".join([u.name for u in obj.Image.all()])
+
 class ImageAdmin(admin.ModelAdmin):
     list_display = ('name','image','default','width','length')
 admin.site.register(Image, ImageAdmin)
@@ -16,7 +17,9 @@ class PropertyAmenitiesAdmin(admin.ModelAdmin):
 admin.site.register(PropertyAmenities, PropertyAmenitiesAdmin)
 
 class PropertiesTypeAdmin(admin.ModelAdmin):
-    list_display = ('name','slug','email','notes','number_of_units','property_type','logo','city','state','contacts','created_date','updated_date')
+    list_display = ('name','slug','email','notes','number_of_units','property_type','get_property_ammenities','logo','city','state','contacts','created_date','updated_date')
+    def get_property_ammenities(self, obj):
+        return "\n".join([u.name for u in obj.property_ammenities.all()])
 admin.site.register(Properties, PropertiesTypeAdmin)
 
 class PropertyUnitsAdmin(admin.ModelAdmin):
