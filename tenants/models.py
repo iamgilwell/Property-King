@@ -47,10 +47,9 @@ class Tenant(models.Model):
             # check_property_unit= PropertyUnits.objects.filter(property__property_unit=propery_unit_updt.unit_name)
             # print("models, tenant.py , check_proprty", check_property_unit)
 
-
-            # propery_unit_updt.availability = False
-            # propery_unit_updt.save()
-            # print("models, tenant.py", propery_unit_updt)
+            propery_unit_updt = PropertyUnits.objects.get(id=self.property_unit_id)
+            propery_unit_updt.availability = False
+            propery_unit_updt.save()
 
         except ValidationError as e:
             # dont save
