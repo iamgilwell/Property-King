@@ -23,7 +23,7 @@ class PropertiesTypeAdmin(admin.ModelAdmin):
 admin.site.register(Properties, PropertiesTypeAdmin)
 
 class PropertyUnitsAdmin(admin.ModelAdmin):
-    list_display = ('property','unit_name','unit_number','price','bedrooms','bathrooms','master_ensuite','notes')
+    list_display = ('property','unit_name','unit_number','price','bedrooms','bathrooms','master_ensuite','availability','notes')
 admin.site.register(PropertyUnits, PropertyUnitsAdmin)
 
 

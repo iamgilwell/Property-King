@@ -1,3 +1,4 @@
+from django.core.exceptions import ValidationError
 from django.db import models
 from django.contrib.gis.db import models
 
@@ -69,6 +70,7 @@ class PropertyUnits(models.Model):
     bedrooms = models.IntegerField()
     bathrooms = models.IntegerField()
     master_ensuite = models.BooleanField(default="NO")
+    availability = models.BooleanField(default=True)
     notes = models.TextField(max_length=2048*4)
     photos = models.ManyToManyField(Image, related_name='images')
     created_date = models.DateTimeField(auto_now=True, null=True, blank=True)
@@ -76,7 +78,29 @@ class PropertyUnits(models.Model):
 
 
     def __str__(self):
-        return self.unit_name
+        # return self.unit_name
+        return "%s - %s" % (self.property.name, self.unit_name)
+
+
+    def save(self, *args, **kwargs):
+        try:
+            self.full_clean()
+            # print("models, tenant.py", self.property_unit)
+            # propery_unit_updt = PropertyUnits.objects.get(id=self.property_unit_id)
+            # propery_unit_updt.availability = False
+            # propery_unit_updt.save()
+            # print("models, tenant.py", propery_unit_updt)
+            # if self.availability == False():
+            print("models, properties.py -----------", self.property)
+
+
+        except ValidationError as e:
+            # dont save
+            # Do something based on the errors contained in e.message_dict.
+            # Display them to a user, or handle them programmatically.
+            pass
+        else:
+            super().save(*args, **kwargs)
     class Meta:
         verbose_name = 'Property Units'
         verbose_name_plural= 'Property Units'
