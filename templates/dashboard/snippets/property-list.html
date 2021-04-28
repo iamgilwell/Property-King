@@ -1,234 +1,55 @@
-{% load static %}
+{% load static %} 
 <div class="row">
-            <div class="col-lg-12">
-                <div class="section-block">
-                    <h3 class="section-title">My Active Campaigns</h3>
-                </div>
-                <div class="card">
-                    <div class="campaign-table table-responsive">
-                        <table class="table">
-                            <thead>
-                                <tr class="border-0">
-                                    <th class="border-0">Company</th>
-                                    <th class="border-0">Campaign Name</th>
-                                    <th class="border-0">Social Platform</th>
-                                    <th class="border-0">Min / Max Views</th>
-                                    <th class="border-0">Status</th>
-                                    <th class="border-0">Start Date</th>
-                                    <th class="border-0">Action</th>
-                                </tr>
-                            </thead>
-                            <tbody>
+    <div class="col-lg-12">
+        <div class="section-block">
+            <h3 class="section-title">My Active Campaigns</h3>
+        </div>
+        <div class="card">
+            <div class="campaign-table table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr class="border-0">
+                            <th class="border-0">NAME</th>
+                            <th class="border-0">EMAIL</th>
+                            <th class="border-0">NO. OF UNITS</th>
+                            <th class="border-0">PROPERT TYPE</th>
+                            <th class="border-0">AMMENITIES</th>
+                            <th class="border-0">CITY</th>
+                            <th class="border-0">CONTACTS</th>
+                            <th class="border-0">ACTION</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for item in properties %} 
                                 <tr>
-                                    <td>
-                                        <div class="m-r-10">
-                                            <img src="{% static 'images/dribbble.png' %}" alt="user" width="35" />
-                                        </div>
-                                    </td>
-                                    <td>Fashion E Commerce</td>
-                                    <td>
-                                        <div class="avatar-group">
-                                            <span><a href="#"><i
-                                                        class="fab fa-fw fa-facebook-square facebook-color"></i></a></span>
-                                            <span><a href="#"><i
-                                                        class="fab fa-fw fa-twitter-square twitter-color"></i></a></span>
-                                            <span><a href="#"><i
-                                                        class="fab fa-fw fa-instagram instagram-color"></i></a></span>
-                                            <span><a href="#"><i
-                                                        class="fab fa-fw fa-pinterest-square pinterest-color"></i></a></span>
-                                        </div>
-                                    </td>
-                                    <td>1,00,000 / 1,50,000</td>
-                                    <td>70%</td>
-                                    <td>7 Aug,2018</td>
-                                    <td>
-                                        <div class="dropdown float-right">
-                                            <a href="#" class="dropdown-toggle card-drop"
-                                                data-toggle="dropdown" aria-expanded="true">
-                                                <i class="mdi mdi-dots-vertical"></i>
-                                            </a>
-                                            <div class="dropdown-menu dropdown-menu-right">
-                                                <!-- item-->
-                                                <a href="javascript:void(0);" class="dropdown-item">Sales
-                                                    Report</a>
-                                                <!-- item-->
-                                                <a href="javascript:void(0);" class="dropdown-item">Export
-                                                    Report</a>
-                                                <!-- item-->
-                                                <a href="javascript:void(0);"
-                                                    class="dropdown-item">Profit</a>
-                                                <!-- item-->
-                                                <a href="javascript:void(0);"
-                                                    class="dropdown-item">Action</a>
-                                            </div>
-                                        </div>
-                                    </td>
+                                <td>{{item.name}}</td>
+                                <td>{{item.email}}</td>
+                                <td>{{item.number_of_units}}</td>
+                                <td>{{item.property_type}}</td>
+                                <td> {% for i in item.property_ammenities.all %}
+                        <li>{{i}}</li>
+                    {%  endfor %}</td>
+                                <td>{{item.city}}</td>                                
+                                <td>{{item.contacts}}</td>
+                                <td><div class="dropdown float-right">
+                                    <a href="#" class="dropdown-toggle card-drop" data-toggle="dropdown" aria-expanded="true">
+                                        <i class="mdi mdi-dots-vertical"></i>
+                                    </a>
+                                    <div class="dropdown-menu dropdown-menu-right">
+                                        <!-- item-->
+                                        <a href="javascript:void(0);" class="dropdown-item">View</a>
+                                        <!-- item-->
+                                        <a href="javascript:void(0);" class="dropdown-item">Edit</a>
+                                        <!-- item-->
+                                        <a href="javascript:void(0);" class="dropdown-item">Delete</a>
+                                        <!-- item-->
+                                    </div>
+                                </div></td>
                                 </tr>
-                                <tr>
-                                    <td>
-                                        <div class="m-r-10">
-                                            <img src="{% static 'images/github.png' %}" alt="user" width="35" />
-                                        </div>
-                                    </td>
-                                    <td>Fitness Products</td>
-                                    <td>
-                                        <div class="avatar-group">
-                                            <span><a href="#"><i
-                                                        class="fab fa-fw fa-facebook-square facebook-color"></i></a></span>
-                                            <span><a href="#"><i
-                                                        class="fab fa-fw fa-twitter-square twitter-color"></i></a></span>
-                                        </div>
-                                    </td>
-                                    <td>2,50,000 / 3,50,000</td>
-                                    <td>70%</td>
-                                    <td>10 Aug,2018</td>
-                                    <td>
-                                        <div class="dropdown float-right">
-                                            <a href="#" class="dropdown-toggle card-drop"
-                                                data-toggle="dropdown" aria-expanded="true">
-                                                <i class="mdi mdi-dots-vertical"></i>
-                                            </a>
-                                            <div class="dropdown-menu dropdown-menu-right">
-                                                <!-- item-->
-                                                <a href="javascript:void(0);" class="dropdown-item">Sales
-                                                    Report</a>
-                                                <!-- item-->
-                                                <a href="javascript:void(0);" class="dropdown-item">Export
-                                                    Report</a>
-                                                <!-- item-->
-                                                <a href="javascript:void(0);"
-                                                    class="dropdown-item">Profit</a>
-                                                <!-- item-->
-                                                <a href="javascript:void(0);"
-                                                    class="dropdown-item">Action</a>
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div class="m-r-10">
-                                            <img src="{% static 'images/dropbox.png' %}" alt="user" width="35" />
-                                        </div>
-                                    </td>
-                                    <td>Gym Trainer Program</td>
-                                    <td>
-                                        <div class="avatar-group">
-                                            <span><a href="#"><i
-                                                        class="fab fa-fw fa-facebook-square facebook-color"></i></a></span>
-                                            <span><a href="#"><i
-                                                        class="fab fa-fw fa-pinterest-square pinterest-color"></i></a></span>
-                                        </div>
-                                    </td>
-                                    <td>3,50,000 / 4,50,000</td>
-                                    <td>70%</td>
-                                    <td>22 Aug,2018</td>
-                                    <td>
-                                        <div class="dropdown float-right">
-                                            <a href="#" class="dropdown-toggle card-drop"
-                                                data-toggle="dropdown" aria-expanded="true">
-                                                <i class="mdi mdi-dots-vertical"></i>
-                                            </a>
-                                            <div class="dropdown-menu dropdown-menu-right">
-                                                <!-- item-->
-                                                <a href="javascript:void(0);" class="dropdown-item">Sales
-                                                    Report</a>
-                                                <!-- item-->
-                                                <a href="javascript:void(0);" class="dropdown-item">Export
-                                                    Report</a>
-                                                <!-- item-->
-                                                <a href="javascript:void(0);"
-                                                    class="dropdown-item">Profit</a>
-                                                <!-- item-->
-                                                <a href="javascript:void(0);"
-                                                    class="dropdown-item">Action</a>
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div class="m-r-10">
-                                            <img src="{% static 'images/bitbucket.png' %}" alt="user" width="30" />
-                                        </div>
-                                    </td>
-                                    <td>2018 Top Product</td>
-                                    <td>
-                                        <div class="avatar-group">
-                                            <span><a href="#"><i
-                                                        class="fab fa-fw fa-pinterest-square pinterest-color"></i></a></span>
-                                        </div>
-                                    </td>
-                                    <td>4,50,000 / 5,50,000</td>
-                                    <td>70%</td>
-                                    <td>25 Aug,2018</td>
-                                    <td>
-                                        <div class="dropdown float-right">
-                                            <a href="#" class="dropdown-toggle card-drop"
-                                                data-toggle="dropdown" aria-expanded="true">
-                                                <i class="mdi mdi-dots-vertical"></i>
-                                            </a>
-                                            <div class="dropdown-menu dropdown-menu-right">
-                                                <!-- item-->
-                                                <a href="javascript:void(0);" class="dropdown-item">Sales
-                                                    Report</a>
-                                                <!-- item-->
-                                                <a href="javascript:void(0);" class="dropdown-item">Export
-                                                    Report</a>
-                                                <!-- item-->
-                                                <a href="javascript:void(0);"
-                                                    class="dropdown-item">Profit</a>
-                                                <!-- item-->
-                                                <a href="javascript:void(0);"
-                                                    class="dropdown-item">Action</a>
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div class="m-r-10">
-                                            <img src="{% static 'images/mail_chimp.png' %}" alt="user" width="30" />
-                                        </div>
-                                    </td>
-                                    <td>Top Dashboard Sale 2018</td>
-                                    <td>
-                                        <div class="avatar-group">
-                                            <span><a href="#"><i
-                                                        class="fab fa-fw fa-facebook-square facebook-color"></i></a></span>
-                                            <span><a href="#"><i
-                                                        class="fab fa-fw fa-pinterest-square pinterest-color"></i></a></span>
-                                        </div>
-                                    </td>
-                                    <td>5,50,000 / 6,50,000</td>
-                                    <td>70%</td>
-                                    <td>27 Aug,2018</td>
-                                    <td>
-                                        <div class="dropdown float-right">
-                                            <a href="#" class="dropdown-toggle card-drop"
-                                                data-toggle="dropdown" aria-expanded="true">
-                                                <i class="mdi mdi-dots-vertical"></i>
-                                            </a>
-                                            <div class="dropdown-menu dropdown-menu-right">
-                                                <!-- item-->
-                                                <a href="javascript:void(0);" class="dropdown-item">Sales
-                                                    Report</a>
-                                                <!-- item-->
-                                                <a href="javascript:void(0);" class="dropdown-item">Export
-                                                    Report</a>
-                                                <!-- item-->
-                                                <a href="javascript:void(0);"
-                                                    class="dropdown-item">Profit</a>
-                                                <!-- item-->
-                                                <a href="javascript:void(0);"
-                                                    class="dropdown-item">Action</a>
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
+                            {% endfor %}
+                    </tbody>
+                </table>
             </div>
         </div>
+    </div>
+</div>

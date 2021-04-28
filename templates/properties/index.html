@@ -2,5 +2,5 @@
 {% block dashboard %}
     {% include "dashboard/snippets/welcome.html" %}
     {% include "dashboard/snippets/top-bar.html" %}
-    {% include "dashboard/snippets/property-list.html" %}
+    {% include "dashboard/snippets/property-list.html" with properties=properties %}
 {% endblock dashboard %}
