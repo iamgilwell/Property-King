@@ -1,6 +1,10 @@
 {% extends "base.html" %}
+{% load static %}
 {% block dashboard %}
     {% include "dashboard/snippets/welcome.html" %}
     {% include "dashboard/snippets/top-bar.html" %}
     {% include "dashboard/snippets/property/property-types-list.html" with property_types=property_types %}
 {% endblock dashboard %}
+{% block javascript %}
+<script type="text/javascript" src="{% static 'js/properties.js' %}"></script>
+{% endblock javascript %}

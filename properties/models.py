@@ -22,6 +22,7 @@ class Image(models.Model):
 
 class PropertType(models.Model):
     name = models.CharField(max_length=255)
+    notes = models.TextField(max_length=2048*4, null=True, blank=True)
     created_date = models.DateTimeField(auto_now=True)
     updated_date = models.DateTimeField(auto_now_add=True)
 
@@ -30,6 +31,7 @@ class PropertType(models.Model):
 
 class PropertyAmenities(models.Model):
     name = models.CharField(max_length=255)
+    notes = models.TextField(max_length=2048*4, null=True, blank=True)
     created_date = models.DateTimeField(auto_now=True)
     updated_date = models.DateTimeField(auto_now_add=True)
 
