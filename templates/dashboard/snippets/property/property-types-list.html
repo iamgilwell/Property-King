@@ -10,10 +10,10 @@
             <div class="col-6 pr-0">
                 <div class="text-right justify-content-right">
                     <div>
-                        <a href="#" class="btn btn-primary active mb-2" data-toggle="modal" data-target="#exampleModal">
+                        <a href="#" class="btn btn-primary active mb-2" data-toggle="modal" data-target="#addPropertyTypeModal">
                             Add Property Type
                         </a>
-                        <div class="modal fade show" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" style="display: none; padding-right: 15px;">
+                        <div class="modal fade show" id="addPropertyTypeModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" style="display: none; padding-right: 15px;">
                             <div class="text-left modal-dialog" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header">
@@ -34,12 +34,16 @@
                                                 <textarea class="form-control" id="notes" name="notes" rows="3"></textarea>
                                             </div>
                                             <div class="modal-footer">
-                                        <a href="#" class="btn btn-secondary" data-dismiss="modal">Close</a>
-                                           <button type="submit" class="btn btn-primary">Submit</button>
-                                    </div>
+                                                <a href="#" class="btn btn-secondary" data-dismiss="modal">Close</a>
+                                                <button type="submit" class="btn btn-primary" id="form-submit-btn">
+                                                    <span class="dashboard-spinner spinner-success spinner-xx" id="spinner"></span>
+                                                    
+                                                    Submit</button>
+                                            </div>
+
                                         </form>
                                     </div>
-                                    
+
                                 </div>
                             </div>
                         </div>
@@ -49,7 +53,7 @@
         </div>
         <div class="card">
             <div class="campaign-table table-responsive">
-                <table class="table">
+                <table class="table" id="property-table">
                     <thead>
                         <tr class="border-0">
                             <th class="border-0">NAME</th>
@@ -62,6 +66,7 @@
                         {% for item in property_types %}
                         <tr>
                             <td>{{item.name}}</td>
+                            <td>{{item.notes}}</td>
                             <td>{{item.created_date}}</td>
                             <td>{{item.updated_date}}</td>
                             <td>
@@ -92,4 +97,3 @@
     </div>
 </div>
 </div>
-

@@ -32,9 +32,13 @@ def save_property_type(request):
         response_data['notes'] = notes
         print("This is the response data ---------------------><><>", response_data)
 
-        PropertType.objects.create(
+        create_obj = PropertType.objects.create(
             name = name,
             notes = notes,
             )
+        
+
+        print("This is the response data ---------------------><><> create_obj.latest", create_obj.objects)
+
         return JsonResponse(response_data)
     return render(request,"properties/property-type.html",  {'property_types':property_types})        
