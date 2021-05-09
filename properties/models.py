@@ -21,7 +21,7 @@ class Image(models.Model):
     # album = models.ForeignKey(ImageAlbum, related_name='images', on_delete=models.CASCADE)
 
 class PropertType(models.Model):
-    name = models.CharField(max_length=255)
+    name = models.CharField(max_length=255, unique=True)
     notes = models.TextField(max_length=2048*4, null=True, blank=True)
     created_date = models.DateTimeField(auto_now=True)
     updated_date = models.DateTimeField(auto_now_add=True)
