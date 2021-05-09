@@ -3,8 +3,8 @@
 {% block dashboard %}
     {% include "dashboard/snippets/welcome.html" %}
     {% include "dashboard/snippets/top-bar.html" %}
-    {% include "dashboard/snippets/property/property-types-list.html" with property_types=property_types %}
+    {% include "dashboard/snippets/property/property-ammenities-list.html" with property_amenities=property_amenities %}
 {% endblock dashboard %}
 {% block javascript %}
-<script type="text/javascript" src="{% static 'js/property-types.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/property-amenities.js' %}"></script>
 {% endblock javascript %}
